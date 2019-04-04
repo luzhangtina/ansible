@@ -1,1 +1,1 @@
-### This ansible exercise based on setup and configure AWS EC2
+### This ansible exercise based on setting up and configuring AWS EC2
