@@ -8,3 +8,7 @@
       args:
         warn: no
       changed_when: false
+
+    - name: This is not fail
+      command: /bin/false
+      ignore_errors: yes
