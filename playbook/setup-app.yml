@@ -16,6 +16,14 @@
         dest: '{{ path_to_app }}/info.php'
         content: '<h1>Webserver info: {{ ansible_hostname }}</h1>'
 
+    - name: See directory content
+      command: ls -la {{ path_to_app }}
+      register: dir_content
+
+    - name: Debug directory content
+      debug:
+        msg: '{{ dir_content }}'
+
     - name: Configure php.ini file
       lineinfile:
         path: /etc/php.ini
