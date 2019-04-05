@@ -2,5 +2,10 @@
 ---
   - hosts: webservers
     become: true
+    vars_prompt:
+      - name: upload_var
+        prompt: 'upload index.php file?'
+      - name: create_var
+        prompt: 'create info.php file?'
     roles:
       - webservers
