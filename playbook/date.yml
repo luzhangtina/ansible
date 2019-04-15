@@ -1,0 +1,98 @@
+#  date.yml
+#  example:
+#  "date": "2017-07-27",
+#  "day": "27",
+#  "epoch": "1501173540",
+#  "hour": "22",
+#  "iso8601": "2017-07-27T16:39:00Z",
+#  "iso8601_basic": "20170727T220900129160",
+#  "iso8601_basic_short": "20170727T220900",
+#  "iso8601_micro": "2017-07-27T16:39:00.129240Z",
+#  "minute": "09",
+#  "month": "07",
+#  "second": "00",
+#  "time": "22:09:00",
+#  "tz": "IST",
+#  "tz_offset": "+0530",
+#  "weekday": "Thursday",
+#  "weekday_number": "4",
+#  "weeknumber": "30",
+#  "year": "2017"
+---
+- hosts: local
+  tasks:
+    - name: ansible date
+      debug:
+        var=ansible_date_time.date
+
+    - name: ansible epoch
+      debug:
+        var=ansible_date_time.epoch
+
+    - name: ansible year
+      debug:
+        var=ansible_date_time.year
+
+    - name: ansible month
+      debug:
+        var=ansible_date_time.month
+
+    - name: ansible weekday
+      debug:
+        var=ansible_date_time.weekday
+
+    - name: ansible weekday_number
+      debug:
+        var=ansible_date_time.weekday_number
+
+    - name: ansible weeknumber
+      debug:
+        var=ansible_date_time.weeknumber
+
+    - name: ansible time
+      debug:
+        var=ansible_date_time.time
+
+    - name: ansible tz
+      debug:
+        var=ansible_date_time.tz
+
+    - name: ansible tz_offset
+      debug:
+        var=ansible_date_time.tz_offset
+
+    - name: ansible hour
+      debug:
+        var=ansible_date_time.hour
+
+    - name: ansible minute
+      debug:
+        var=ansible_date_time.minute
+
+    - name: ansible second
+      debug:
+        var=ansible_date_time.second
+
+    - name: ansible iso8601
+      debug:
+        var=ansible_date_time.iso8601
+
+    - name: ansible iso8601_basic
+      debug:
+        var=ansible_date_time.iso8601_basic
+
+    - name: ansible iso8601_basic_short
+      debug:
+        var=ansible_date_time.iso8601_basic_short
+
+    - name: ansible iso8601_micro
+      debug:
+        var=ansible_date_time.iso8601_micro
+
+    - name: retrieving local system time stamp using ansible lookup(Mon Apr 15 11:18:30 AEST 2019)
+      debug:
+        msg="{{ lookup('pipe','date') }}"
+
+    - name: retrieving local system time stamp using ansible lookup(2019-04-15-11-18-30)
+      debug:
+        msg="{{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
